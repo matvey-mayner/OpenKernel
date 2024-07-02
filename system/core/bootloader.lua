@@ -1,4 +1,4 @@
---likeOS classic bootloader
+--OpenKernel bootloader
 
 ------------------------------------base init
 
@@ -10,7 +10,7 @@ local shutdown = computer.shutdown
 local error = error
 local pcall = pcall
 
-_G._COREVERSION = "likeOS-v1.8"
+_G._COREVERSION = "OpenKernel 1.0"
 _G._OSVERSION = _G._COREVERSION --это перезаписываеться в дистрибутивах
 
 local bootloader = params.unpackBootloader or {} --библиотека загрузчика
