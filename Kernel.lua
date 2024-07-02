@@ -1,4 +1,4 @@
---likeOS core
+--OpenKernel
 local bootfs = component.proxy(computer.getBootAddress())
 local tmpfs = component.proxy(computer.tmpAddress())
 
@@ -92,7 +92,7 @@ tmpfs.remove(bootloaderSettingsPath)
 if bootproxy.exists(bootfile) then
     assert(load(assert(readFile(bootproxy, bootfile)), "=" .. bootfile, nil, _ENV))(table.unpack(bootargs))
 else
-    local lowLevelInitializer = "/likeOS_startup.lua" --может использоваться для запуска обновления системы
+    local lowLevelInitializer = "/OpenKernel_startup.lua" --может использоваться для запуска обновления системы
     if bootproxy.exists(lowLevelInitializer) then
         assert(loadfile(bootproxy, lowLevelInitializer))()
     end
