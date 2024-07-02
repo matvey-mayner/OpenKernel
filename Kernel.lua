@@ -73,8 +73,16 @@ else
     else
         params = {}
     end
-    params.noRecovery = true
-    bootargs = {noRecovery = true}
+    if tmpfs.exists("/bootloader/recovery") then
+        params.forceRecovery = readFile(tmpfs, "/bootloader/recovery")
+    end
+    if tmpfs.exists("/bootloader/unpackBootloader") then
+        params.unpackBootloader = unserialize(readFile(tmpfs, "/bootloader/unpackBootloader"))
+    end
+    if tmpfs.exists("/bootloader/noRecovery") then
+        params.noRecovery = false
+    end
+    bootargs = {params}
 end
 
 tmpfs.remove(bootloaderSettingsPath)
