@@ -223,10 +223,10 @@ end
 function bootloader.runShell(path, ...)
     --запуск оболочки дистрибутива
     if require("filesystem").exists(path) then
-        bootloader.bootSplash("Starting The Shell...")
+        bootloader.bootSplash("Starting The System...")
         assert(require("programs").load(path))(...)
     else
-        bootloader.bootSplash("Shell Does Not Exist. Press Enter To Continue.")
+        bootloader.bootSplash("!KERNEL PANIC!")
         bootloader.waitEnter()
     end
 end
@@ -461,7 +461,7 @@ if not params.noRecovery and (params.forceRecovery or not getRegistry().disableR
                 recoveryScreen = defaultScreen
             end
         else
-            bootloader.bootSplash("Press R to open recovery menu")
+            bootloader.bootSplash("Press R to open recovery mode")
             local startTime = computer.uptime()
             while computer.uptime() - startTime <= 1 do
                 local eventData = {computer.pullSignal(0.1)}
@@ -482,7 +482,7 @@ if not params.noRecovery and (params.forceRecovery or not getRegistry().disableR
         end
 
         if recoveryScreen then
-            bootloader.bootSplash("RECOVERY MENU")
+            bootloader.bootSplash("RECOVERY MODE")
 
             local recoveryPath = bootloader.find("recovery.lua")
             if recoveryPath then
