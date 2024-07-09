@@ -508,7 +508,7 @@ bootloader.bootSplash("Booting...")
 bootloader.yield()
 
 if not lowLevelInitializerErr then
-    doLowLevel("/likeOS_startup.lua") --может использоваться для запуска обновления системы
+    doLowLevel("/OpenKernel_startup.lua") --может использоваться для запуска обновления системы
 
     if not lowLevelInitializerErr then
         local bootstrapResult = {xpcall(bootloader.bootstrap, debug.traceback)}
@@ -546,6 +546,6 @@ end
 ------------------------------------ error output
 
 if log_ok and not getRegistry().disableAutoReboot then --если удалось записать log то комп перезагрузиться, а если не удалось то передаст ошибку в bios
-    shutdown(true)
+    error("! KERNEL PANIC !")
 end
 error(err, 0)
