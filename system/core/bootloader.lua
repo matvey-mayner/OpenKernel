@@ -546,6 +546,6 @@ end
 ------------------------------------ error output
 
 if log_ok and not getRegistry().disableAutoReboot then --если удалось записать log то комп перезагрузиться, а если не удалось то передаст ошибку в bios
-    error("! KERNEL PANIC !")
+    shutdown(true)
 end
 error(err, 0)
