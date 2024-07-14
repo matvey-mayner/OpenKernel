@@ -1,5 +1,5 @@
 /system/core/bootloader.lua
-/LICENSE
+/system/core/LICENSE
 /system/core/logo.lua
 /system/core/recovery.lua
 /system/core/autoruns/a_component.lua
