@@ -1,5 +1,5 @@
 /system/core/bootloader.lua
-/system/core/LICENSE
+/LICENSE
 /system/core/logo.lua
 /system/core/recovery.lua
 /system/core/autoruns/a_component.lua
@@ -46,4 +46,4 @@
 /system/core/unittests/c_split.lua
 /system/core/unittests/d_toParts.lua
 /system/core/unittests/e_sha256.lua
-/init.lua
+/Kernel.lua
