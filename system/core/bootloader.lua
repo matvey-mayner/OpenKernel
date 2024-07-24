@@ -580,7 +580,7 @@ if log_ok and not getRegistry().disableAutoReboot then --если удалось
     gpu.set(18, 1, "!Kernel Panic!")
     gpu.set(16, 2, "Your Computer Has")
     gpu.set(19, 3, "Been Crashed")
-    gpu.set(1, 15, "Error Code: KERNEL_FAILED_SYSTEM_INIT")
+    gpu.set(1, 15, "Error Code: KERNEL_FAILED_INIT_SYSTEM")
 
     while true do
         event.pull("touch")
@@ -599,7 +599,7 @@ end
     gpu.set(18, 1, "!Kernel Panic!")
     gpu.set(16, 2, "Your Computer Has")
     gpu.set(19, 3, "Been Crashed")
-    gpu.set(1, 15, "Error Code: KERNEL_FAILED_SYSTEM_INIT")
+    gpu.set(1, 15, "Error Code: KERNEL_FAILED_INIT_SYSTEM")
 
 while true do
     event.pull("touch")
