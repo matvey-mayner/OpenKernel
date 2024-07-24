@@ -551,4 +551,4 @@ if log_ok and not getRegistry().disableAutoReboot then --если удалось
     error("!!!Kernel Panic!!!", 0)
 end
 computer.beep(100, 0.8)
-error("!!!Kernel Panic!!!",err, 0)
+error("!!!Kernel Panic!!!", 0)
