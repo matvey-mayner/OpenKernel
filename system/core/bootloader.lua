@@ -21,7 +21,7 @@ bootloader.bootaddress = computer.getBootAddress()
 bootloader.bootfs = component.proxy(bootloader.bootaddress)
 
 bootloader.coreversion = _G._COREVERSION
-bootloader.runlevel = "init"
+bootloader.runlevel = "Kernel"
 
 function computer.runlevel()
     return bootloader.runlevel
@@ -43,7 +43,7 @@ end
 
 ------------------------------------ bootloader constants
 
-bootloader.defaultShellPath = "/system/main.lua"
+bootloader.defaultShellPath = "/system/System-main.lua"
 
 ------------------------------------ base functions
 
@@ -172,7 +172,7 @@ function bootloader.initScreen(gpu, screen, rx, ry)
 end
 
 function bootloader.bootstrap()
-    if bootloader.runlevel ~= "init" then error("bootstrap can only be started with runlevel init", 0) end
+    if bootloader.runlevel ~= "Kernel" then error("!!!bootstrap can only be started with Kernel Level!!!", 0) end
 
     --natives позваляет получить доступ к нетронутым методами библиотек computer и component
     _G.natives = bootloader.dofile("/system/core/lib/natives.lua", bootloader.createEnv())
@@ -546,6 +546,6 @@ end
 ------------------------------------ error output
 
 if log_ok and not getRegistry().disableAutoReboot then --если удалось записать log то комп перезагрузиться, а если не удалось то передаст ошибку в bios
-    shutdown(true)
+    error("!!!Kernel Panic!!!", 0)
 end
-error(err, 0)
+error("!!!Kernel Panic!!!",err, 0)
