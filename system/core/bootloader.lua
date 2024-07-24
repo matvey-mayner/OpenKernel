@@ -239,9 +239,13 @@ function bootloader.runShell(path, ...)
           gpu.fill(1, 1, 50, 16, " ")
  
         computer.beep(100, 0.8)
+        os.sleep(0.08)
         gpu.set(18, 1, "!Kernel Panic!")
+        os.sleep(0.08)
         gpu.set(16, 2, "Your Computer Has")
+        os.sleep(0.08)
         gpu.set(19, 3, "Been Crashed")
+        os.sleep(0.08)
         gpu.set(1, 15, "Error Code: KERNEL_DID_NOT_FIND_THE_SYSTEM")
 
         while true do
@@ -577,9 +581,13 @@ if log_ok and not getRegistry().disableAutoReboot then --если удалось
       gpu.fill(1, 1, 50, 16, " ")
  
     computer.beep(100, 0.8)
+    os.sleep(0.08)
     gpu.set(18, 1, "!Kernel Panic!")
+    os.sleep(0.08)
     gpu.set(16, 2, "Your Computer Has")
+    os.sleep(0.08)
     gpu.set(19, 3, "Been Crashed")
+    os.sleep(0.08)
     gpu.set(1, 15, "Error Code: KERNEL_FAILED_INIT_SYSTEM")
 
     while true do
@@ -596,9 +604,13 @@ end
       gpu.fill(1, 1, 50, 16, " ")
  
     computer.beep(100, 0.8)
+    os.sleep(0.08)
     gpu.set(18, 1, "!Kernel Panic!")
+    os.sleep(0.08)
     gpu.set(16, 2, "Your Computer Has")
+    os.sleep(0.08)
     gpu.set(19, 3, "Been Crashed")
+    os.sleep(0.08)
     gpu.set(1, 15, "Error Code: KERNEL_FAILED_INIT_SYSTEM")
 
 while true do
