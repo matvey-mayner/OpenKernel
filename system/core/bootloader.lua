@@ -227,6 +227,7 @@ function bootloader.runShell(path, ...)
         assert(require("programs").load(path))(...)
     else
         bootloader.bootSplash("!KERNEL PANIC!")
+        computer.beep(100, 0.8)
         bootloader.waitEnter()
     end
 end
@@ -546,6 +547,8 @@ end
 ------------------------------------ error output
 
 if log_ok and not getRegistry().disableAutoReboot then --если удалось записать log то комп перезагрузиться, а если не удалось то передаст ошибку в bios
+    computer.beep(100, 0.8)
     error("!!!Kernel Panic!!!", 0)
 end
+computer.beep(100, 0.8)
 error("!!!Kernel Panic!!!",err, 0)
