@@ -547,8 +547,40 @@ end
 ------------------------------------ error output
 
 if log_ok and not getRegistry().disableAutoReboot then --если удалось записать log то комп перезагрузиться, а если не удалось то передаст ошибку в bios
+    local component = require("component")
+    local gpu = component.gpu
+    local computer = require("computer")
+    local event = require("event")
+    
+      gpu.setBackground(0x000000)
+      gpu.setForeground(0xFFFFFF)
+      gpu.fill(1, 1, 50, 16, " ")
+ 
     computer.beep(100, 0.8)
-    error("!!!Kernel Panic!!!", 0)
+    gpu.set(18, 1, "!Kernel Panic!")
+    gpu.set(16, 2, "Your Computer Has")
+    gpu.set(19, 3, "Been Crashed")
+    gpu.set(1, 15, "Error Code: KERNEL_FAILED_SYSTEM_INIT")
+
+    while true do
+        event.pull("touch")
+    end
 end
-computer.beep(100, 0.8)
-error("!!!Kernel Panic!!!", 0)
+    local component = require("component")
+    local gpu = component.gpu
+    local computer = require("computer")
+    local event = require("event")
+
+      gpu.setBackground(0x000000)
+      gpu.setForeground(0xFFFFFF)
+      gpu.fill(1, 1, 50, 16, " ")
+ 
+    computer.beep(100, 0.8)
+    gpu.set(18, 1, "!Kernel Panic!")
+    gpu.set(16, 2, "Your Computer Has")
+    gpu.set(19, 3, "Been Crashed")
+    gpu.set(1, 15, "Error Code: KERNEL_FAILED_SYSTEM_INIT")
+
+while true do
+    event.pull("touch")
+end
