@@ -227,7 +227,27 @@ function bootloader.runShell(path, ...)
         assert(require("programs").load(path))(...)
     else
         bootloader.bootSplash("!KERNEL PANIC!")
+        os.sleep(0.05)
         computer.beep(100, 0.8)
+        local component = require("component")
+        local gpu = component.gpu
+        local computer = require("computer")
+        local event = require("event")
+
+          gpu.setBackground(0x000000)
+          gpu.setForeground(0xFFFFFF)
+          gpu.fill(1, 1, 50, 16, " ")
+ 
+        computer.beep(100, 0.8)
+        gpu.set(18, 1, "!Kernel Panic!")
+        gpu.set(16, 2, "Your Computer Has")
+        gpu.set(19, 3, "Been Crashed")
+        gpu.set(1, 15, "Error Code: KERNEL_DID_NOT_FIND_THE_SYSTEM")
+
+        while true do
+            event.pull("touch")
+        end
+        
         bootloader.waitEnter()
     end
 end
