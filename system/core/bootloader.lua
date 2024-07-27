@@ -10,7 +10,7 @@ local shutdown = computer.shutdown
 local error = error
 local pcall = pcall
 
-_G._COREVERSION = "OpenKernel 1.0"
+_G._COREVERSION = "OpenKernel 1.1"
 _G._OSVERSION = _G._COREVERSION --это перезаписываеться в дистрибутивах
 
 local bootloader = params.unpackBootloader or {} --библиотека загрузчика
@@ -237,7 +237,8 @@ function bootloader.runShell(path, ...)
           gpu.setBackground(0x000000)
           gpu.setForeground(0xFFFFFF)
           gpu.fill(1, 1, 50, 16, " ")
- 
+
+        gpu.setResolution(50, 16)
         computer.beep(100, 0.8)
         os.sleep(0.08)
         gpu.set(18, 1, "!Kernel Panic!")
@@ -579,7 +580,7 @@ if log_ok and not getRegistry().disableAutoReboot then --если удалось
       gpu.setBackground(0x000000)
       gpu.setForeground(0xFFFFFF)
       gpu.fill(1, 1, 50, 16, " ")
- 
+    gpu.setResolution(50, 16)
     computer.beep(100, 0.8)
     os.sleep(0.08)
     gpu.set(18, 1, "!Kernel Panic!")
@@ -602,7 +603,7 @@ end
       gpu.setBackground(0x000000)
       gpu.setForeground(0xFFFFFF)
       gpu.fill(1, 1, 50, 16, " ")
- 
+        gpu.setResolution(50, 16)
     computer.beep(100, 0.8)
     os.sleep(0.08)
     gpu.set(18, 1, "!Kernel Panic!")
