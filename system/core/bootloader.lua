@@ -248,6 +248,8 @@ function bootloader.runShell(path, ...)
         gpu.set(19, 3, "Been Crashed")
         os.sleep(0.08)
         gpu.set(1, 15, "Error Code: KERNEL_DID_NOT_FIND_THE_SYSTEM")
+        os.sleep(0.12)
+        computer.shutdown()
 
         while true do
             event.pull("touch")
@@ -590,6 +592,8 @@ if log_ok and not getRegistry().disableAutoReboot then --если удалось
     gpu.set(19, 3, "Been Crashed")
     os.sleep(0.08)
     gpu.set(1, 15, "Error Code: KERNEL_FAILED_INIT_SYSTEM")
+    os.sleep(0.12)
+    computer.shutdown(true)
 
     while true do
         event.pull("touch")
@@ -613,6 +617,8 @@ end
     gpu.set(19, 3, "Been Crashed")
     os.sleep(0.08)
     gpu.set(1, 15, "Error Code: KERNEL_FAILED_INIT_SYSTEM")
+    os.sleep(0.12)
+    computer.shutdown(true)
 
 while true do
     event.pull("touch")
